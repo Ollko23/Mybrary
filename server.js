@@ -1,7 +1,7 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
-
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config()
+// }
+const DATABASE_URL = "mongodb+srv://Ollko:Ollko0323@alex.nwv91uy.mongodb.net/?retryWrites=true&w=majority"
 
 const express = require("express")
 const app = express()
@@ -20,7 +20,10 @@ app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }))
 
 const mongoose = require('mongoose')
 mongoose.set("strictQuery", false);
-mongoose.connect(process.env.DATABASE_URL, () => {
+// mongoose.connect(process.env.DATABASE_URL, () => {
+//     console.log("Connected to MongoDB");
+// });
+mongoose.connect(DATABASE_URL, () => {
     console.log("Connected to MongoDB");
 });
 const db = mongoose.connection
