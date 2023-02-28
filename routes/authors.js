@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Author = require("../models/author")
 // All Authors Route
+
 router.get("/", async (req, res) => {
     let searchOptions = {}
     if (req.query.name != null && req.query.name != "") {
@@ -13,7 +14,6 @@ router.get("/", async (req, res) => {
             authors: authors,
             searchOptions: req.query
         })
-        // console.log(authors[0].name)
     } catch {
         res.redirect('/')
         // res.send("error")
